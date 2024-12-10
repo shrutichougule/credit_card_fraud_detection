@@ -6,34 +6,34 @@ This project demonstrates a robust system for detecting credit card fraud using 
 
 
 # Table of Contents
-Features
-Tech Stack
-Architecture
-Dataset
-Setup
-Results
-Future Enhancements
-License
+1. Features
+2. Tech Stack
+3. Architecture
+4. Dataset
+5. Setup
+6. Results
+7. Future Enhancements
+8. License
 # Features
-Advanced Fraud Detection: Utilizes cutting-edge HTM-CLA, H-DS, and H-MSC classifiers to detect fraudulent transactions.
-Cloud-Native Solution: Leveraging GCP services for seamless deployment, high availability, and real-time analysis.
-Scalable Data Pipeline: Built to handle large datasets with real-time processing using tools like BigQuery and Dataflow.
-Explainable Results: Model results include interpretability metrics to understand fraud patterns.
+- Advanced Fraud Detection: Utilizes cutting-edge HTM-CLA, H-DS, and H-MSC classifiers to detect fraudulent transactions.
+- Cloud-Native Solution: Leveraging GCP services for seamless deployment, high availability, and real-time analysis.
+- Scalable Data Pipeline: Built to handle large datasets with real-time processing using tools like BigQuery and Dataflow.
+- Explainable Results: Model results include interpretability metrics to understand fraud patterns.
 # Tech Stack
 Programming Languages:
 
-Python
-SQL
+- Python
+- SQL
 Libraries & Frameworks:
 
-NumPy, Pandas, Matplotlib
-Scikit-learn, TensorFlow, PyTorch
-NuPIC (for HTM-CLA implementation)
+- NumPy, Pandas, Matplotlib
+- Scikit-learn, TensorFlow, PyTorch
+- NuPIC (for HTM-CLA implementation)
 Big Data & Cloud Services:
 
-GCP: BigQuery, Dataflow, Cloud Storage
-Apache Beam
-Pub/Sub for real-time data streaming
+- GCP: BigQuery, Dataflow, Cloud Storage
+- Apache Beam
+- Pub/Sub for real-time data streaming
 #Architecture
 
 1. Data Ingestion:
