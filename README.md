@@ -34,23 +34,22 @@ Big Data & Cloud Services:
 - GCP: BigQuery, Dataflow, Cloud Storage
 - Apache Beam
 - Pub/Sub for real-time data streaming
-#Architecture
-
+# Architecture
 1. Data Ingestion:
-
 Transactions are streamed into GCP using Pub/Sub.
 Historical data stored in Cloud Storage.
-2. Data Processing:
 
+2. Data Processing:
 Data is cleaned and transformed using Apache Beam (Dataflow).
 Features are engineered to feed into the classifiers.
-3. Model Deployment:
 
+3. Model Deployment:
 HTM-CLA, H-DS, and H-MSC classifiers are trained on historical data.
 Deployed via GCP AI Platform for inference.
-4. Fraud Detection:
 
+5. Fraud Detection:
 Predictions are processed in real-time and stored in BigQuery for visualization and monitoring.
+
 # Dataset
 The dataset used for this project is a publicly available credit card fraud dataset containing anonymized features.
 
@@ -59,6 +58,7 @@ Key Features:
 
 30 Features including Time, Amount, and anonymized principal components.
 Highly imbalanced: Only ~0.17% of transactions are fraudulent.
+
 # Setup
 Prerequisites
 Google Cloud Platform account with:
@@ -68,18 +68,17 @@ AI Platform
 Python environment with the following libraries:
 numpy, pandas, scikit-learn, tensorflow, nupic, apache-beam
 
-# Installation
+Installation
 Clone the repository:
-
-bash
-Copy code
+````
 git clone https://github.com/username/credit-card-fraud-detection.git
 cd credit-card-fraud-detection
 Install required Python libraries:
+````
 
-bash
-Copy code
+````
 pip install -r requirements.txt
+````
 Set up GCP credentials:
 
 bash
