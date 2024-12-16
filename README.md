@@ -71,7 +71,7 @@ Predictions are processed in real-time and stored in BigQuery for visualization 
 
 ## Step 2: Data Acquisition and Data Processing 
 
-Create a bash script (.sh) to download and load dataset directly from kaggle to google cloud storage.
+Create a bash script (upload_datafiles.sh) to download and load dataset directly from kaggle to google cloud storage.
 
 ```
 #!/bin/bash
@@ -79,6 +79,64 @@ Create a bash script (.sh) to download and load dataset directly from kaggle to 
 curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTrain.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
 curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTest.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
 ```
+
+
+#### Create a new composer (fraud-detection). 
+#### Create airflow dag to run above shell script. 
+#### Place the DAG file into the DAGs folder on Google Cloud Storage
+#### Steps to upload the DAG file:
+1. Save this script as upload_datafiles.py.
+2. Upload the file to the Google Cloud Storage bucket linked to your Composer environment under the "dags" folder.
+Example: gsutil cp upload_datafiles.py gs://<your-composer-bucket>/dags/
+
+```
+
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from datetime import datetime
+
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2023, 7, 17),
+    'retries': 0,
+}
+
+
+test_dag = DAG(
+    'upload_datafiles',
+    default_args=default_args,
+    schedule_interval="@weekly"
+)
+
+
+# Define the BashOperator task
+bash_task = BashOperator(
+    task_id='bash_task_execute_script',
+    bash_command='./upload_datafiles.sh',
+    dag=test_dag
+)
+
+# Set task dependencies
+bash_task
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Dataset
