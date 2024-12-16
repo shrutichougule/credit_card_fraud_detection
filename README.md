@@ -51,6 +51,35 @@ Deployed via GCP AI Platform for inference.
 5. Fraud Detection:
 Predictions are processed in real-time and stored in BigQuery for visualization and monitoring.
 
+
+# Step 1: Setup and Prerequisites
+1. Create a GCP Project:
+
+  Enable the following APIs:
+  - BigQuery
+  - Cloud Storage
+  - AI Platform
+  - Pub/Sub
+  - cloud composer(Airflow)
+
+  Python environment with the following libraries:
+  numpy, pandas, scikit-learn, tensorflow, nupic, apache-beam
+  
+2. Set Up IAM and Service Accounts:
+
+  Assign roles for Dataflow, BigQuery, and AI Platform.
+
+# Step 2: Data Acquisition and Data Processing 
+
+Create a bash script (.sh) to download and load dataset directly from kaggle to google cloud storage.
+
+`````
+
+curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTrain.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
+curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTest.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
+`````
+
+
 # Dataset
 The dataset used for this project is a publicly available credit card fraud dataset containing anonymized features.
 
@@ -69,39 +98,8 @@ AI Platform
 Python environment with the following libraries:
 numpy, pandas, scikit-learn, tensorflow, nupic, apache-beam
 
-Installation
-Clone the repository:
-````
-git clone https://github.com/username/credit-card-fraud-detection.git
-cd credit-card-fraud-detection
-Install required Python libraries:
-````
+I
 
-````
-pip install -r requirements.txt
-````
-Set up GCP credentials:
-
-bash
-Copy code
-export GOOGLE_APPLICATION_CREDENTIALS="path-to-service-account.json"
-Upload data to Cloud Storage:
-
-bash
-Copy code
-gsutil cp dataset.csv gs://your-bucket-name/
-Run the pipeline:
-
-bash
-Copy code
-python data_pipeline.py
-Results
-The system achieves:
-
-Precision: 98.5%
-Recall: 96.7%
-F1-Score: 97.6%
-Model results are stored in BigQuery and visualized using Data Studio.
 
 # Future Enhancements
 Integrate AutoML for hyperparameter tuning.
