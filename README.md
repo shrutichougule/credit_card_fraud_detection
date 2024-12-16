@@ -35,15 +35,16 @@ Big Data & Cloud Services:
 - Apache Beam
 - Pub/Sub for real-time data streaming
 # Architecture
-1. Data Ingestion:
+1. Data Acquisition: The dataset is sourced from Kaggle, and can be found here: [https://www.kaggle.com/competitions/ieee-fraud-detection/overview](https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection)
+2. Data Ingestion:
 Transactions are streamed into GCP using Pub/Sub.
 Historical data stored in Cloud Storage.
 
-2. Data Processing:
+3. Data Processing:
 Data is cleaned and transformed using Apache Beam (Dataflow).
 Features are engineered to feed into the classifiers.
 
-3. Model Deployment:
+4. Model Deployment:
 HTM-CLA, H-DS, and H-MSC classifiers are trained on historical data.
 Deployed via GCP AI Platform for inference.
 
