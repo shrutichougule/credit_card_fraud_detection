@@ -52,7 +52,7 @@ Deployed via GCP AI Platform for inference.
 Predictions are processed in real-time and stored in BigQuery for visualization and monitoring.
 
 
-# Step 1: Setup and Prerequisites
+## Step 1: Setup and Prerequisites
 1. Create a GCP Project:
 
   Enable the following APIs:
@@ -69,15 +69,16 @@ Predictions are processed in real-time and stored in BigQuery for visualization 
 
   Assign roles for Dataflow, BigQuery, and AI Platform.
 
-# Step 2: Data Acquisition and Data Processing 
+## Step 2: Data Acquisition and Data Processing 
 
 Create a bash script (.sh) to download and load dataset directly from kaggle to google cloud storage.
 
-`````
+```
+#!/bin/bash
 
 curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTrain.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
 curl https://www.kaggle.com/code/rajputnavya/credit-card-fraud-detection/input?select=fraudTest.csv | gsutil cp - gs://inputdatafiles/fraudTrain.csv
-`````
+```
 
 
 # Dataset
